@@ -1,2 +1,2 @@
-# CortexCodePersonalPlayground
-Cortex Code Skills for SD Enablement Trials - Personal Repo
+# Enablement Account Lookup Exercise
+App for enablement exercise: Lookup Account using Snowhouse
