@@ -17,7 +17,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar" style={{ padding: '24px 0' }}>
       <div style={{ padding: '0 20px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <img src="/images/snowyhousechimney.png" alt="Snowhouse" style={{ width: 40, height: 40, marginBottom: 4 }} />
+        <img src={`${import.meta.env.BASE_URL}images/snowyhousechimney.png`} alt="Snowhouse" style={{ width: 40, height: 40, marginBottom: 4 }} />
         <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'rgba(255,255,255,0.5)', marginBottom: 4 }}>
           Activity Guide
         </div>

@@ -19,7 +19,7 @@ export default function Page2_Scenario() {
             <path d="M63.995 0L0 40.771l63.995 40.772L128 40.771zM192.005 0L128 40.771l64.005 40.772L256 40.771zM0 122.321l63.995 40.772L128 122.321 63.995 81.543zM192.005 81.543L128 122.321l64.005 40.772L256 122.321zM64.005 176.258L128 217.03l63.995-40.772L128 135.486z" fill="#0061FF"/>
           </svg>
           <span style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>+</span>
-          <img src="/images/Snowflake_Logomark_blue.png" alt="Snowflake" style={{ width: 32, height: 32 }} />
+          <img src={`${import.meta.env.BASE_URL}images/Snowflake_Logomark_blue.png`} alt="Snowflake" style={{ width: 32, height: 32 }} />
         </div>
       </div>
 
