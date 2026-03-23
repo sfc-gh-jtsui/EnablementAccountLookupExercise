@@ -44,7 +44,7 @@ export default function Page7_Step5() {
             <tbody>
               <tr>
                 <td><strong>Snowflake Account ID</strong></td>
-                <td><code style={{ fontFamily: 'var(--font-mono)' }}>7013</code></td>
+                <td><code style={{ fontFamily: 'var(--font-mono)' }}>90210</code></td>
               </tr>
               <tr>
                 <td><strong>Snowflake Deployment</strong></td>
@@ -52,7 +52,7 @@ export default function Page7_Step5() {
               </tr>
               <tr>
                 <td>Account Name</td>
-                <td>DROPBOX</td>
+                <td>—</td>
               </tr>
               <tr>
                 <td>Alias</td>

@@ -1,50 +1,24 @@
-import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import SqlCodeBlock from '../components/SqlCodeBlock';
 import QueryRunner from '../components/QueryRunner';
 
-function ConnectButton() {
-  const [status, setStatus] = useState<'idle' | 'connecting' | 'connected' | 'error'>('idle');
-  const [error, setError] = useState('');
-
-  const handleConnect = async () => {
-    setStatus('connecting');
-    setError('');
-    try {
-      const res = await fetch('/api/connect', { method: 'POST' });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Connection failed');
-      setStatus('connected');
-    } catch (err: any) {
-      setError(err.message);
-      setStatus('error');
-    }
+function LaunchSnowhouseButton() {
+  const handleLaunch = () => {
+    window.open('https://SFCOGSOPS-SNOWHOUSE_AWS_US_WEST_2.snowflakecomputing.com', '_blank');
   };
 
   return (
-    <div className="card" style={{ marginBottom: 24, borderColor: status === 'connected' ? 'var(--success-green)' : 'var(--primary-blue)', borderLeftWidth: 3 }}>
-      <h3 style={{ marginBottom: 8 }}>Connect to Snowflake</h3>
+    <div className="card" style={{ marginBottom: 24, borderColor: 'var(--primary-blue)', borderLeftWidth: 3 }}>
+      <h3 style={{ marginBottom: 8 }}>Launch Snowhouse</h3>
       <p style={{ marginBottom: 12, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-        Click below to authenticate with Snowhouse. This will open a browser window for SSO login.
+        Click below to launch Snowhouse in a separate window. Run the exercise queries in the live environment to follow along with the exercise steps.
       </p>
       <button
         className="btn-primary"
-        onClick={handleConnect}
-        disabled={status === 'connecting' || status === 'connected'}
-        style={{
-          background: status === 'connected' ? 'var(--success-green)' : undefined,
-        }}
+        onClick={handleLaunch}
       >
-        {status === 'idle' && '🔗 Connect to Snowflake'}
-        {status === 'connecting' && 'Opening browser...'}
-        {status === 'connected' && '✓ Connected'}
-        {status === 'error' && '🔗 Retry Connection'}
+        🔗 Launch Snowhouse
       </button>
-      {status === 'error' && (
-        <div className="feedback-error" style={{ marginTop: 8, fontSize: '0.85rem' }}>
-          {error}
-        </div>
-      )}
     </div>
   );
 }
@@ -57,7 +31,7 @@ export default function Page3_Step1() {
         Confirm you're connected to Snowhouse with the correct role.
       </p>
 
-      <ConnectButton />
+      <LaunchSnowhouseButton />
 
       <div className="card" style={{ marginBottom: 24 }}>
         <h3 style={{ marginBottom: 12 }}>Check Your Role</h3>

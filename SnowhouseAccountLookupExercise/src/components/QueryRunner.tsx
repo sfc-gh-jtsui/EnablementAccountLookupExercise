@@ -13,20 +13,17 @@ export default function QueryRunner({ queryId, buttonText = 'Run Query', onResul
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const cached = queryResults[queryId] as { columns: string[]; rows: (string | number | null)[][] } | undefined;
+  const cached = queryResults[queryId] as unknown as { columns: string[]; rows: (string | number | null)[][] } | undefined;
 
   const runQuery = async () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/query', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ queryId }),
-      });
+      // Simulate a brief network delay for realism
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const res = await fetch(`${import.meta.env.BASE_URL}data/${queryId}.json`);
       if (!res.ok) {
-        const errData = await res.json().catch(() => ({ error: 'Request failed' }));
-        throw new Error(errData.error || `HTTP ${res.status}`);
+        throw new Error(`Failed to load query results (HTTP ${res.status})`);
       }
       const data = await res.json();
       setQueryResults(queryId, data);

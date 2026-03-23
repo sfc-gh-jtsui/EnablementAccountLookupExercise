@@ -7,7 +7,7 @@ export default function Page6_Step4() {
   const { completedChecks, queryResults } = useExercise();
   const bothChecked = completedChecks.has('env-column') && completedChecks.has('prod-account');
 
-  const refinedResults = queryResults['dropbox-refined'] as
+  const refinedResults = queryResults['dropbox-refined'] as unknown as
     | { columns: string[]; rows: (string | number | null)[][] }
     | undefined;
 
@@ -61,14 +61,14 @@ export default function Page6_Step4() {
         question="Select the production account from the options below:"
         mode="radio"
         options={[
-          '6411651 | prod2 | YSA11027 | PROJECT_POLARIS_TEST',
-          '6657 | aznortheurope | EO55901 | GI10312',
-          '7013 | prod1 | DROPBOX | PROD',
-          '8397 | prod1 | DROPBOXDEV | DEV',
+          '90212 | prod2 | PROJECT_POLARIS_TEST',
+          '90213 | aznortheurope | GI10312',
+          '90210 | prod1 | PROD',
+          '90211 | prod1 | DEV',
         ]}
-        correctAnswer="7013 | prod1 | DROPBOX | PROD"
-        hint="Look for the account with alias 'PROD' and name 'DROPBOX' (not DROPBOXDEV)."
-        explanation="Account ID 7013 on prod1 deployment with name DROPBOX and alias PROD is the production account."
+        correctAnswer="90210 | prod1 | PROD"
+        hint="Look for the account with alias 'PROD' on the prod1 deployment."
+        explanation="Account ID 90210 on prod1 deployment with alias PROD is the production account."
       />
 
       <div style={{ marginTop: 24 }}>
@@ -99,7 +99,7 @@ export default function Page6_Step4() {
           }}>
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: 4 }}>Account ID</div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--navy)' }}>7013</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--navy)' }}>90210</div>
             </div>
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: 4 }}>Deployment</div>
@@ -112,4 +112,5 @@ export default function Page6_Step4() {
       <Navigation />
     </div>
   );
+
 }

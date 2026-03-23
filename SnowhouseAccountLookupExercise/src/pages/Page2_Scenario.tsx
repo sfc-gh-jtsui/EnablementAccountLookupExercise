@@ -43,10 +43,10 @@ export default function Page2_Scenario() {
 
       <div className="card">
         <h2 style={{ marginBottom: 12 }}>Prerequisites</h2>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: 8, fontSize: '0.9rem' }}>
-          Check off each item as you confirm it. This checklist is for your reference — it won't block your progress.
-        </p>
         <Checklist items={prerequisites} />
+        <p style={{ color: 'var(--text-secondary)', marginTop: 16, fontSize: '0.85rem', fontStyle: 'italic' }}>
+          NOTE: This exercise will use simulated Snowhouse queries with synthetic data results to demonstrate looking up an account. Complete these prerequisites in order to follow along these exercise steps in the live Snowhouse environment.
+        </p>
       </div>
 
       <Navigation />
