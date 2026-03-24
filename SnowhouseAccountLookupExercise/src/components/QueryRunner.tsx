@@ -19,11 +19,14 @@ export default function QueryRunner({ queryId, buttonText = 'Run Query', onResul
     setLoading(true);
     setError(null);
     try {
-      // Simulate a brief network delay for realism
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      const res = await fetch(`${import.meta.env.BASE_URL}data/${queryId}.json`);
+      const res = await fetch('/api/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ queryId }),
+      });
       if (!res.ok) {
-        throw new Error(`Failed to load query results (HTTP ${res.status})`);
+        const errData = await res.json().catch(() => ({ error: 'Request failed' }));
+        throw new Error(errData.error || `HTTP ${res.status}`);
       }
       const data = await res.json();
       setQueryResults(queryId, data);

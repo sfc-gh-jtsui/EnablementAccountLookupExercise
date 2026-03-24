@@ -19,7 +19,7 @@ export default function Page2_Scenario() {
             <path d="M63.995 0L0 40.771l63.995 40.772L128 40.771zM192.005 0L128 40.771l64.005 40.772L256 40.771zM0 122.321l63.995 40.772L128 122.321 63.995 81.543zM192.005 81.543L128 122.321l64.005 40.772L256 122.321zM64.005 176.258L128 217.03l63.995-40.772L128 135.486z" fill="#0061FF"/>
           </svg>
           <span style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>+</span>
-          <img src={`${import.meta.env.BASE_URL}images/Snowflake_Logomark_blue.png`} alt="Snowflake" style={{ width: 32, height: 32 }} />
+          <img src="/images/Snowflake_Logomark_blue.png" alt="Snowflake" style={{ width: 32, height: 32 }} />
         </div>
       </div>
 
@@ -43,10 +43,10 @@ export default function Page2_Scenario() {
 
       <div className="card">
         <h2 style={{ marginBottom: 12 }}>Prerequisites</h2>
-        <Checklist items={prerequisites} />
-        <p style={{ color: 'var(--text-secondary)', marginTop: 16, fontSize: '0.85rem', fontStyle: 'italic' }}>
-          NOTE: This exercise will use simulated Snowhouse queries with synthetic data results to demonstrate looking up an account. Complete these prerequisites in order to follow along these exercise steps in the live Snowhouse environment.
+        <p style={{ color: 'var(--text-secondary)', marginBottom: 8, fontSize: '0.9rem' }}>
+          Check off each item as you confirm it. This checklist is for your reference — it won't block your progress.
         </p>
+        <Checklist items={prerequisites} />
       </div>
 
       <Navigation />
